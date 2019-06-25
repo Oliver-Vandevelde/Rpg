@@ -2,17 +2,12 @@
     require "assets/php/creation-personnage.php";
     //Creation des differente classe + stats de base
     //Force -> degat arme -> armure -> resistance
-    // $guerrier = new personnage("Guerrier",5,5,0,0);
-    // $paladin = new personnage("Paladin",3,3,2,2);
-    // $assasin = new personnage("Assasin",6,2,1,1);
-    // $archer = new personnage("Archer",3,5,1,1);
-    // $mage = new personnage("Mage",2,2,2,4);
-    if($_POST["classe"]=="guerrier"){
+    if($_POST["classe"]=="guerrier"||empty($_POST["classe"])){
         $personnage = new personnage("Guerrier",5,5,0,0);
     }if($_POST["classe"]=="paladin"){
         $personnage = new personnage("Paladin",3,3,2,2);
-    }if($_POST["classe"]=="assasin"){
-        $personnage = new personnage("Assasin",6,2,1,1);
+    }if($_POST["classe"]=="assassin"){
+        $personnage = new personnage("Assassin",6,2,1,1);
     }if($_POST["classe"]=="archer"){
         $personnage = new personnage("Archer",3,5,1,1);
     }if($_POST["classe"]=="mage"){
@@ -32,7 +27,7 @@
     <form action="" method="POST">
         <button name="classe" value="guerrier">Guerrier</button>
         <button name="classe" value="paladin">Paladin</button>
-        <button name="classe" value="assasin">Assasin</button>
+        <button name="classe" value="assassin">Assassin</button>
         <button name="classe" value="archer">Archer</button>
         <button name="classe" value="mage">Mage</button>
     </form>
@@ -43,8 +38,8 @@
             <li>Force : ".$personnage->force()."</li>
             <li>Degat de l'arme: ".$personnage->degatArme()."</li>
             <li>Armure : ".$personnage->armure()."</li>
-            <li>Resistance : ".$personnage->resistance()."</li></ul>";
-
+            <li>Resistance : ".$personnage->resistance()."</li></ul>
+            <button>Choisir ".$personnage->nom()."</button>";
         ?>
     </body>
 </html>
