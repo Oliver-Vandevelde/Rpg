@@ -1,6 +1,7 @@
 <?php
     class personnage{
         //Creation des stats de base du personnage
+        private $_nom;
         private $_vie;
         private $_experience;
         private $_degatArme;
@@ -8,13 +9,17 @@
         private $_armure;
         private $_resistance;
         //Creation constructeur et set les stats
-        public function __construct($force, $degatArme, $armure, $resistance){
+        public function __construct($nom, $force, $degatArme, $armure, $resistance){
+            $this->_nom = $nom;
             $this->setForce($force);
             $this->setArmure($armure);
             $this->setDegatArme($degatArme);
             $this->setResistance($resistance);
             $this->_vie = 100;
             $this->_experience = 0;
+        }
+        public function nom(){
+            return $this->_nom;
         }
         //Modification Experience
         public function experience(){
