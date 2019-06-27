@@ -1,102 +1,84 @@
 <?php
-    class personnage{
-        //Creation des stats de base du personnage
+    class Personnage{
+        private $_id;
         private $_nom;
+        private $_forcePerso;
         private $_vie;
+        private $_niveau;
         private $_experience;
-        private $_degatArme;
-        private $_force;
-        private $_armure;
-        private $_resistance;
-        //Creation constructeur et set les stats
-        public function __construct($nom, $force, $degatArme, $armure, $resistance){
-            $this->_nom = $nom;
-            $this->setForce($force);
-            $this->setArmure($armure);
-            $this->setDegatArme($degatArme);
-            $this->setResistance($resistance);
-            $this->_vie = 100;
-            $this->_experience = 0;
-        }
-        public function nom(){
-            return $this->_nom;
-        }
-        //Modification Experience
-        public function experience(){
-            return $this->_experience;
-        }
-        //Modification Vie
-        public function vie(){
-            return $this->_vie;
-        }
-        //Modification degat de l'arme
-        public function degatArme(){
-            return $this->_degatArme;
-        }
-        //Modification de l'armure
-        public function armure(){
-            return $this->_armure;
-        }
-        //Modification de la resistance
-        public function resistance(){
-            return $this->_resistance;
-        }
-        //Modification de la force
-        public function force(){
-            return $this->_force;
-        }
-        //Modification du gain Xp
-        public function gagnerXp(){
-            $this->_experience++;
-        }
-        //Fonction d'attaque
-        public function frapper(personnage $PersoAFrapper){
-            $PersoAFrapper->_vie -= $this->_force;
-        }
-        //Set la Force de base
-        public function setForce($force){
-            if(!is_int($force)){//Nombre seulement
-                trigger_error('La force d\'un personnage doit être un nombre entier', E_USER_WARNING);
-                return;
-            }if($force > 100){//Inferieur a 100
-                trigger_error('La force d\'un personnage ne peut dépasser 100', E_USER_WARNING);
-                return;
+
+        // Hydrate basique
+        // public function hydrate(array $donnees){
+        //     if (isset($donnees['id'])){
+        //         $this->setId($donnees['id']);
+        //     }if (isset($donnees['nom'])){
+        //         $this->setNom($donnees['nom']);
+        //     }if (isset($donnees['forcePerso'])){
+        //         $this-setForcePerso($donnees['forcePerso']);
+        //     }if (isset($donnees['vie'])){
+        //         $this-setVie($donnees['vie']);
+        //     }if (isset($donnees['niveau'])){
+        //         $this-setNiveau($donnees['niveau']);
+        //     }if (isset($donnees['experience'])){
+        //         $this-setExperience($donnees['experience']);
+        //     }
+        // }
+
+        public function hydrate(array $donnees){
+            foreach ($donnees as $key => $value){
+                $method = 'set'.ucfirst($key);
+                if (method_exists($this, $method)){
+                    $this->$method($value);
+                }
             }
-            $this->_force = $force;
         }
-        //Set la resistance de base
-        public function setResistance($resistance){
-            if(!is_int($resistance)){
-                trigger_error('La resistance d\'un personnage doit être un nombre entier', E_USER_WARNING);
-                return;
-            }if($resistance > 100){
-                trigger_error('La resistance d\'un personnage ne peut dépasser 100', E_USER_WARNING);
-                return;
-            }
-            $this->_resistance = $resistance;
+        //Appelle a la function hydrate via un constructeur
+        public function __construct(array $donnees){
+            $this->hydrate($donnees);
         }
-        //Set les degat de l'arme de base
-        public function setDegatArme($degatArme){
-            if(!is_int($degatArme)){
-                trigger_error('La degatArme d\'un personnage doit être un nombre entier', E_USER_WARNING);
-                return;
-            }if($degatArme > 100){
-                trigger_error('La degatArme d\'un personnage ne peut dépasser 100', E_USER_WARNING);
-                return;
+
+        //getters
+        public function id(){ return $this->_id; }
+        public function nom(){ return $this->_nom; }
+        public function forcePerso(){ return $this->_forcePerso; }
+        public function vie(){ return $this->_vie; }
+        public function niveau(){ return $this->_niveau; }
+        public function experience(){ return $this->_experience; }
+
+        //setters
+        public function setId($id){
+            $id =(int) $id;// transformer en nombre entier
+            if($id > 0){
+                $this->_id = $id;
             }
-            $this->_degatArme = $degatArme;
         }
-        //Set l'armure de base
-        public function setArmure($armure){
-            if(!is_int($armure)){
-                trigger_error('L\'armure d\'un personnage doit être un nombre entier', E_USER_WARNING);
-                return;
+        public function setNom($nom){
+            if(is_string($nom)){//verifier que c'est bien une chaine de caractere
+                $this->_nom = $nom;
             }
-            if($armure > 100){
-                trigger_error('L\'armure d\'un personnage ne peut dépasser 100', E_USER_WARNING);
-                return;
+        }
+        public function setForcePerso($forcePerso){
+            $forcePerso = (int)$forcePerso;
+            if($forcePerso>= 1 && $forcePerso<=100){
+                $this->_forcePerso = $forcePerso;
             }
-            $this->_armure = $armure;
+        }
+        public function setVie($vie){
+            $vie = (int)$vie;
+            if($vie >= 0 && $vie <=100){
+                $this->_vie = $vie;
+            }
+        }
+        public function setNiveau($niveau){
+            $niveau = (int)$niveau;
+            if($niveau >= 1 && $niveau <= 50){
+                $this->_niveau = $niveau;
+            }
+        }
+        public function setExperience($experience){
+            $experience = (int)$experience;
+            if($experience >= 0 && $experience < 100){
+                $this->_experience = $experience;
+            }
         }
     }
-?>
