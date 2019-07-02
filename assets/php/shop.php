@@ -10,6 +10,18 @@
     <title>Notre Super RPG</title>
 </head>
 <body>
-    
+    <div class="forgeron">
+    <button class="btn btn-primary return" onclick="document.location.href='selectNiveau.php'"><= Retour</button>
+    </div>
+    <section>
+        <section class="shopTop">
+            <button class="btn btn-shop" value="arme">Arme</button>
+            <button class="btn btn-shop" value="armure">Armure</button>
+        </section>
+        <section class="shopBottom">
+            <button class="btn btn-shop" value="potion">Potion</button>
+            <button class="btn btn-shop" value="enchantement">Enchantement</button>
+        </section>
+    </section>
 </body>
 </html>

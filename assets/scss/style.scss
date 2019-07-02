@@ -35,6 +35,7 @@
 .return{
     margin: 2% 0 2% 2%;
 }
+// ---> Css : Niveau <---
 .continuMain{
     margin:0 auto;
     height: 70vh;
@@ -70,5 +71,70 @@
             height: 10vh;
             width: 30vw;
         }
+    }
+}
+// ---> Css : Talent <---
+.talentFirst{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.talentSecond , .talentThree{
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-around;
+}
+.talent{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: green;
+}
+// ---> Css : Shop <---
+.forgeron{
+    background-color: grey;
+    height: 60vh;
+}
+.shopTop, .shopBottom{
+    display: flex;
+    height: 20vh;
+    .btn-shop{
+        background-color: green;
+        border: 1px solid black;
+        width: 50vw;
+    } 
+}
+// ---> Css : Inventaire <---
+.mainInventaire{
+    display: flex;
+    .stuff{
+        width: 30vw;
+        height: 100vh;
+        background-color: grey;
+        .stuffArmure{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .armurEquipe{
+                margin-top: 6%;
+            }
+        }
+        .stuffArme{
+            margin-top: 6%;
+            display: flex;
+            justify-content: space-around
+        }
+        .stuffEquipe{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            border: 2px solid black;
+        }
+    }
+    .inventaire{
+        background-color: orange;
+        height: 100vh;
+        width: 70vw;
     }
 }

@@ -29,4 +29,30 @@
 .mainMenu .menu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; }
 
 .mainMenu .menu .btnMenu { height: 10vh; width: 30vw; }
+
+.talentFirst { margin-top: 2%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+
+.talentSecond, .talentThree { margin-top: 7%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; }
+
+.talent { height: 100px; width: 100px; border-radius: 10px; border: 2px solid black; background-color: green; }
+
+.forgeron { background-color: grey; height: 60vh; }
+
+.shopTop, .shopBottom { display: -webkit-box; display: -ms-flexbox; display: flex; height: 20vh; }
+
+.shopTop .btn-shop, .shopBottom .btn-shop { background-color: green; border: 1px solid black; width: 50vw; }
+
+.mainInventaire { display: -webkit-box; display: -ms-flexbox; display: flex; }
+
+.mainInventaire .stuff { width: 30vw; height: 100vh; background-color: grey; }
+
+.mainInventaire .stuff .stuffArmure { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.mainInventaire .stuff .stuffArmure .armurEquipe { margin-top: 6%; }
+
+.mainInventaire .stuff .stuffArme { margin-top: 6%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; }
+
+.mainInventaire .stuff .stuffEquipe { height: 100px; width: 100px; background-color: green; border: 2px solid black; }
+
+.mainInventaire .inventaire { background-color: orange; height: 100vh; width: 70vw; }
 /*# sourceMappingURL=style.css.map */

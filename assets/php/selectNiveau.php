@@ -15,9 +15,9 @@
 
         </section>
         <section class="menu">
-            <button class="btn btn-primary btnMenu">Inventaire</button>
-            <button class="btn btn-primary btnMenu">Shop</button>
-            <button class="btn btn-primary btnMenu">Talent</button>
+            <button class="btn btn-primary btnMenu" onclick="document.location.href='inventaire.php'">Inventaire</button>
+            <button class="btn btn-primary btnMenu" onclick="document.location.href='shop.php'">Shop</button>
+            <button class="btn btn-primary btnMenu" onclick="document.location.href='talent.php'">Talent</button>
             <button class="btn btn-primary btnMenu">Option</button>
             <button class="btn btn-primary btnMenu" onclick="document.location.href='../../index.php'">Deconnexion</button>
         </section>
